@@ -16,30 +16,49 @@ const liveFeed = document.getElementById('liveFeed');
 function autoScroll() {
   liveFeed.scrollTop = 0; // Scroll to top
 }
+let allIssues = [];
+let currentIndex = 0;
+const batchSize = 3;
 
 async function fetchLatestIssues() {
   try {
     const response = await fetch('https://api.github.com/repos/DoESLiverpool/somebody-should/issues?sort=created&direction=desc&per_page=100');
-    const issues = await response.json();
+    allIssues = await response.json();
+    currentIndex = 0;
+    renderIssueBatch();
+  } catch (err) {
+    console.error('Live feed error:', err);
+    liveFeed.innerHTML = '<p>Error loading issues.</p>';
+  }
+}
+function renderIssueBatch() {
+  liveFeed.innerHTML = '';
+  const batch = allIssues.slice(currentIndex, currentIndex + batchSize);
 
-    liveFeed.innerHTML = ''; // Clear previous items
+  batch.forEach(issue => {
+    const item = document.createElement('div');
+    item.className = 'issue-item';
+    item.innerHTML = `
+      <p><strong>${issue.title}</strong></p>
+      <p>${issue.body ? issue.body.substring(0, 100) + '...' : 'No description.'}</p>
+      <small>${new Date(issue.created_at).toLocaleString()}</small>
+      <hr>
+    `;
+    liveFeed.appendChild(item);
+  });
 
-    if (issues.length === 0) {
-      liveFeed.innerHTML = '<p>No recent issues found.</p>';
-      return;
-    }
+  autoScroll();
+}
+setInterval(() => {
+  if (allIssues.length === 0) return;
 
-    issues.forEach(issue => {
-      const item = document.createElement('div');
-      item.className = 'issue-item';
-      item.innerHTML = `
-        <p><strong>${issue.title}</strong></p>
-        <p>${issue.body ? issue.body.substring(0, 100) + '...' : 'No description.'}</p>
-        <small>${new Date(issue.created_at).toLocaleString()}</small>
-        <hr>
-      `;
-      liveFeed.appendChild(item);
-    });
+  currentIndex += batchSize;
+  if (currentIndex >= allIssues.length) currentIndex = 0;
+
+  renderIssueBatch();
+}, 10000); // every 10 seconds
+
+    
 
     autoScroll();
   } catch (err) {
