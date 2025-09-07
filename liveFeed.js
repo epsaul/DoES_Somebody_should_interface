@@ -19,7 +19,7 @@ function autoScroll() {
 
 async function fetchLatestIssues() {
   try {
-    const response = await fetch('https://api.github.com/repos/DoESLiverpool/somebody-should/issues?sort=created&direction=desc&per_page=5');
+    const response = await fetch('https://api.github.com/repos/DoESLiverpool/somebody-should/issues?sort=created&direction=desc&per_page=100');
     const issues = await response.json();
 
     liveFeed.innerHTML = ''; // Clear previous items
