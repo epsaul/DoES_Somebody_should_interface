@@ -103,3 +103,19 @@ footer {
   border-radius: 6px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
+@keyframes scrollPersonas {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+.persona-scroll {
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.persona-scroll-inner {
+  display: flex;
+  flex-direction: column;
+  animation: scrollPersonas 60s linear infinite;
+}
