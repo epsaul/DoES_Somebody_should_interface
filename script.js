@@ -1,8 +1,8 @@
 const issueContainer = document.getElementById('issues');
 let allIssues = [];
+
 async function fetchAllIssues() {
   try {
-    allIssues = allIssues.concat(issues);
     let page = 1;
     const perPage = 100;
     let hasMore = true;
@@ -22,11 +22,9 @@ async function fetchAllIssues() {
     renderIssues(allIssues);
   } catch (error) {
     issueContainer.innerHTML = '<p>Error loading issues.</p>';
-    console.error(error);
+    console.error('Fetch error:', error);
   }
 }
-
-
 
 function renderIssues(issues) {
   issueContainer.innerHTML = '';
@@ -53,6 +51,5 @@ function filterIssues() {
 
   renderIssues(filtered);
 }
-
 
 fetchAllIssues();
