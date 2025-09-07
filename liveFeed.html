@@ -1,11 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Issue Feed</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Live Issue Feed</h1>
+  <p>Latest issues from the DoES Liverpool “somebody should” repo</p>
 <div id="styleToggle">
   <button onclick="setFeedStyle('terminal')">Terminal Mode</button>
   <button onclick="setFeedStyle('social')">Social Mode</button>
 </div>
 
-<div id="liveFeed" style="height: 400px; overflow-y: scroll; border: 1px solid #ccc;">
-  <!-- Issues will appear here -->
-</div>
-<script src="liveFeed.js"></script>
-<h1>Live Issue Feed</h1>
-<p>Latest issues from the DoES Liverpool “somebody should” repo</p>
+<div id="liveFeed" class="feed-container terminal-style">
+    <!-- Issues will appear here -->
+  </div>
+
+  <script src="liveFeed.js"></script>
+</body>
+</html>
