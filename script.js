@@ -56,19 +56,18 @@ function renderIssues(issues) {
   });
 }
 
-async function filterIssues() {
+function filterIssues() {
   const keyword = document.getElementById('searchBox').value.toLowerCase();
 
-  try {
-    const response = await fetch('https://api.github.com/repos/DoESLiverpool/somebody-should/issues?per_page=100');
-    const data = await response.json();
+  const filtered = allIssues.filter(issue =>
+    issue.title.toLowerCase().includes(keyword) ||
+    (issue.body && issue.body.toLowerCase().includes(keyword)) ||
+    issue.labels.some(label => label.name.toLowerCase().includes(keyword))
+  );
 
-    const filtered = data.filter(issue =>
-      issue.title.toLowerCase().includes(keyword) ||
-      (issue.body && issue.body.toLowerCase().includes(keyword))
-    );
+  renderIssues(filtered);
+}
 
-    renderIssues(filtered);
   } catch (error) {
     issueContainer.innerHTML = '<p>Error filtering issues.</p>';
     console.error(error);
