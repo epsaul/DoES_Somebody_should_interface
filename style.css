@@ -109,7 +109,7 @@ footer {
 }
 
 .persona-scroll {
-  max-height: 300px;
+  max-height: 100px;
   overflow: hidden;
   position: relative;
 }
