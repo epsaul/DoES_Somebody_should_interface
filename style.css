@@ -30,3 +30,21 @@ button {
   margin-bottom: 1rem;
   border-radius: 5px;
 }
+#beta-banner {
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #856404;
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+}
