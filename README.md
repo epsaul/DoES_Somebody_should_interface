@@ -17,3 +17,12 @@ DoES Liverpool uses GitHub Issues to track tasks, suggestions, and maintenance n
 
 ## 📁 Project Structure
 
+This project is a static front-end interface designed to make GitHub issue tracking more accessible for non-coders. All files live in the root directory:
+DoES_Somebody_should_interface/
+├── index.html       # Main interface for browsing and searching issues
+├── style.css        # Styling for layout, readability, and responsiveness
+├── script.js        # JavaScript logic for fetching, filtering, and rendering issues
+├── README.md        # Project overview, setup instructions, and contribution guide
+
+
+
