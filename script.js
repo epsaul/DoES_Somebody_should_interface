@@ -1,16 +1,32 @@
 const issueContainer = document.getElementById('issues');
 
-function fetchIssues() {
-  fetch('https://api.github.com/repos/DoESLiverpool/somebody-should/issues')
-    .then(response => response.json())
-    .then(data => {
-      renderIssues(data);
-    })
-    .catch(error => {
-      issueContainer.innerHTML = '<p>Error loading issues.</p>';
-      console.error(error);
-    });
+async function fetchAllIssues() {
+  try {
+    let allIssues = [];
+    let page = 1;
+    const perPage = 100;
+    let hasMore = true;
+
+    while (hasMore) {
+      const response = await fetch(`https://api.github.com/repos/DoESLiverpool/somebody-should/issues?page=${page}&per_page=${perPage}`);
+      const issues = await response.json();
+
+      if (issues.length > 0) {
+        allIssues = allIssues.concat(issues);
+        page++;
+      } else {
+        hasMore = false;
+      }
+    }
+
+    renderIssues(allIssues);
+  } catch (error) {
+    issueContainer.innerHTML = '<p>Error loading issues.</p>';
+    console.error(error);
+  }
 }
+
+
 
 function renderIssues(issues) {
   issueContainer.innerHTML = '';
@@ -26,17 +42,24 @@ function renderIssues(issues) {
   });
 }
 
-function filterIssues() {
+async function filterIssues() {
   const keyword = document.getElementById('searchBox').value.toLowerCase();
-  fetch('https://api.github.com/repos/DoESLiverpool/somebody-should/issues')
-    .then(response => response.json())
-    .then(data => {
-      const filtered = data.filter(issue =>
-        issue.title.toLowerCase().includes(keyword) ||
-        (issue.body && issue.body.toLowerCase().includes(keyword))
-      );
-      renderIssues(filtered);
-    });
+
+  try {
+    const response = await fetch('https://api.github.com/repos/DoESLiverpool/somebody-should/issues?per_page=100');
+    const data = await response.json();
+
+    const filtered = data.filter(issue =>
+      issue.title.toLowerCase().includes(keyword) ||
+      (issue.body && issue.body.toLowerCase().includes(keyword))
+    );
+
+    renderIssues(filtered);
+  } catch (error) {
+    issueContainer.innerHTML = '<p>Error filtering issues.</p>';
+    console.error(error);
+  }
 }
 
-fetchIssues();
+
+fetchAllIssues();
