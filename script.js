@@ -56,17 +56,7 @@ function renderIssues(issues) {
   });
 }
 
-function filterIssues() {
-  const keyword = document.getElementById('searchBox').value.toLowerCase();
 
-  const filtered = allIssues.filter(issue =>
-    issue.title.toLowerCase().includes(keyword) ||
-    (issue.body && issue.body.toLowerCase().includes(keyword)) ||
-    issue.labels.some(label => label.name.toLowerCase().includes(keyword))
-  );
-
-  renderIssues(filtered);
-}
 
   } catch (error) {
     issueContainer.innerHTML = '<p>Error filtering issues.</p>';
