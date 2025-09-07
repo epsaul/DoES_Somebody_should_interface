@@ -60,11 +60,7 @@ setInterval(() => {
 
     
 
-    autoScroll();
-  } catch (err) {
-    console.error('Live feed error:', err);
-    liveFeed.innerHTML = '<p>Error loading issues.</p>';
-  }
+
 }
 
 fetchLatestIssues();
