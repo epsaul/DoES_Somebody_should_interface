@@ -1,3 +1,16 @@
+function setFeedStyle(style) {
+  liveFeed.classList.remove('terminal-style', 'social-style');
+  liveFeed.classList.add(`${style}-style`);
+  liveFeed.innerHTML = ''; // Clear feed
+  fetchLatestIssues();     // Re-render with new style
+  liveFeed.querySelectorAll('.issue-item').forEach(item => {
+  item.className = 'issue-item'; // Reapply class
+    console.log(`Switched to ${style} mode`);
+
+});
+
+}
+
 const liveFeed = document.getElementById('liveFeed');
 
 function autoScroll() {
