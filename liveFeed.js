@@ -58,10 +58,5 @@ setInterval(() => {
   renderIssueBatch();
 }, 10000); // every 10 seconds
 
-    
-
-
-}
-
 fetchLatestIssues();
 setInterval(fetchLatestIssues, 300000); // Refresh every 5 minutes
