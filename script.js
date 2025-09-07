@@ -1,22 +1,8 @@
-let allIssues = [];
-allIssues = allIssues.concat(issues);
-function filterIssues() {
-  const keyword = document.getElementById('searchBox').value.toLowerCase();
-
-  const filtered = allIssues.filter(issue =>
-    issue.title.toLowerCase().includes(keyword) ||
-    (issue.body && issue.body.toLowerCase().includes(keyword)) ||
-    issue.labels.some(label => label.name.toLowerCase().includes(keyword))
-  );
-
-  renderIssues(filtered);
-}
-
 const issueContainer = document.getElementById('issues');
 
 async function fetchAllIssues() {
   try {
-    
+    let allIssues = [];
     let page = 1;
     const perPage = 100;
     let hasMore = true;
@@ -75,6 +61,8 @@ async function filterIssues() {
   }
 }
 
+
+fetchAllIssues();
 
 fetchAllIssues();
 
