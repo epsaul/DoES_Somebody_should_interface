@@ -52,7 +52,7 @@ function filterIssues() {
   );
 
   renderIssues(filtered);
-
+}
 
 
 fetchAllIssues();
