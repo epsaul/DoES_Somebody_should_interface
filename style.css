@@ -48,3 +48,38 @@ footer {
   color: #666;
   text-align: center;
 }
+.feed-container {
+  height: 400px;
+  overflow-y: scroll;
+  padding: 1em;
+  border: 1px solid #ccc;
+  transition: background 0.3s ease;
+}
+
+/* Terminal Style */
+.terminal-style {
+  background: #111;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+}
+
+.terminal-style .issue-item {
+  border-bottom: 1px dashed #0f0;
+  padding: 0.5em 0;
+}
+
+/* Social Style */
+.social-style {
+  background: #f9f9f9;
+  color: #333;
+  font-family: sans-serif;
+}
+
+.social-style .issue-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1em;
+  margin-bottom: 1em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
