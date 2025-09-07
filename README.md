@@ -17,8 +17,6 @@ DoES Liverpool uses GitHub Issues to track tasks, suggestions, and maintenance n
 
 ## 📁 Project Structure
 
-## 📁 Project Structure
-
 This project is a static front-end interface designed to make GitHub issue tracking more accessible for non-coders. All files live in the root directory:
 
 | File                                                                 | Purpose                                                             |
