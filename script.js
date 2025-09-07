@@ -52,13 +52,7 @@ function filterIssues() {
   );
 
   renderIssues(filtered);
-}
 
-  } catch (error) {
-    issueContainer.innerHTML = '<p>Error filtering issues.</p>';
-    console.error(error);
-  }
-}
 
 
 fetchAllIssues();
