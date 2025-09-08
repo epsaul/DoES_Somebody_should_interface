@@ -192,8 +192,7 @@ label[for="description"] {
 }
 
 
-@media (max-width: 600px) {
-  /* Mobile-specific overrides go here */
+  /* Mobile-specific overrides */
 }
 @media (max-width: 600px) {
   body {
