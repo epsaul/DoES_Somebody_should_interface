@@ -185,6 +185,12 @@ select[multiple] {
   display: block;
   margin-bottom: 1em;
 }
+label[for="description"] {
+  vertical-align: top;
+  display: inline-block;
+  margin-bottom: 0.25em;
+}
+
 
 @media (max-width: 600px) {
   /* Mobile-specific overrides go here */
