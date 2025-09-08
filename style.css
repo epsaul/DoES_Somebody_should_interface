@@ -175,3 +175,9 @@ select[multiple] {
   background: #fff;
   resize: vertical;
 }
+.form-disclaimer {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #aa0000;
+  font-style: italic;
+}
