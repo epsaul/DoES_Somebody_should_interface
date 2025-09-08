@@ -181,3 +181,39 @@ select[multiple] {
   color: #aa0000;
   font-style: italic;
 }
+@media (max-width: 600px) {
+  /* Mobile-specific overrides go here */
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 1.1em;
+    margin: 1rem;
+  }
+
+  .issue-form {
+    padding: 1em;
+    margin: 1em auto;
+  }
+
+  input[type="text"],
+  textarea,
+  select {
+    font-size: 1em;
+    padding: 0.75em;
+  }
+
+  .submit-button {
+    width: 100%;
+    font-size: 1.1em;
+    padding: 1em;
+    margin-top: 1em;
+  }
+
+  legend {
+    font-size: 1.2em;
+  }
+
+  .form-disclaimer {
+    font-size: 1em;
+  }
+}
