@@ -181,6 +181,11 @@ select[multiple] {
   color: #aa0000;
   font-style: italic;
 }
+.form-group {
+  display: block;
+  margin-bottom: 1em;
+}
+
 @media (max-width: 600px) {
   /* Mobile-specific overrides go here */
 }
