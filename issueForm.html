@@ -6,26 +6,47 @@
 
   <label for="description">Description <span class="required">*</span></label>
   <textarea id="description" name="description" rows="6" placeholder="Describe the issue as if whispering it to Gerald…" required></textarea>
+<!-- Tools -->
+<label for="tool">Tools involved:</label>
+<select name="tool[]" id="tool" multiple title="Select one or more tools that relate to the issue.">
+  <option>Laser Cutter - Large (Gerald)</option>
+  <option>Laser Cutter (Sheila)</option>
+  <option>Laser Cutter - Monster (Tony)</option>
+  <option>Vinyl Cutter & Plotter (Roland Rat)</option>
+  <option>Pen Plotter - McGraw</option>
+  <option>B/W Laser Printer</option>
+  <option>Heat Press (St. Margaret)</option>
+  <option>3D Printer - CR-6 MAX (Marcus)</option>
+  <option>Singer 201K Sewing m/c (Miss Polly)</option>
+</select>
 
-  <label for="labels">Labels (optional)</label>
-  <select id="labels" name="labels" multiple>
-    <option value="Broken">Broken</option>
-    <option value="Tool: Gerald">Tool: Gerald</option>
-    <option value="Room: Events Room">Room: Events Room</option>
-    <option value="Needs More Poetry">Needs More Poetry</option>
-    <option value="Community">Community</option>
-    <option value="Documentation">Documentation</option>
-  </select>
+<!-- Rooms -->
+<label for="room">Rooms affected:</label>
+<select name="room[]" id="room" multiple title="Which physical spaces are involved or impacted?">
+  <option>Events Room</option>
+  <option>Laser Room</option>
+  <option>Textiles Room</option>
+  <option>Main Space</option>
+  <option>Kitchen</option>
+  <option>Workshop</option>
+  <option>Other / Not Listed</option>
+</select>
 
-  <label for="persona">Who are you today? (optional)</label>
-  <select id="persona" name="persona">
-    <option value="">— Choose a persona —</option>
-    <option value="Zen Technician">🧘‍♀️ Zen Technician</option>
-    <option value="Doorbot Survivor">🧑‍🚀 Doorbot Survivor</option>
-    <option value="Label Alchemist">🧑‍🔬 Label Alchemist</option>
-    <option value="Workshop Crooner">🧑‍🎤 Workshop Crooner</option>
-    <option value="Quiet Steward">🧑‍🌾 Quiet Steward</option>
-  </select>
+<!-- Systems -->
+<label for="system">Systems involved:</label>
+<select name="system[]" id="system" multiple title="Digital systems or infrastructure related to the issue.">
+  <option>Website</option>
+  <option>DoES Community Online System: Issue Tracker</option>
+</select>
+
+<!-- Other -->
+<label for="other">Other categories:</label>
+<select name="other[]" id="other" multiple title="General themes or concerns that apply.">
+  <option>Health & Safety</option>
+  <option>Finance</option>
+  <option>Promotion</option>
+  <option>Spreading the word about how epic DoES Liverpool is</option>
+</select>
 
   <label for="submitter">Your Name (optional)</label>
   <input type="text" id="submitter" name="submitter" placeholder="e.g. Ed, or leave blank">
