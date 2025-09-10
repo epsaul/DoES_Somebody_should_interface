@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submit a DoES Issue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="issueForm" class="issue-form">
+<div class="form-group">
+  <label for="title">Issue Title *</label>
+  <input type="text" id="title" name="title" required placeholder="e.g. Gerald is sad again">
+</div>
+
+<div class="form-group">
+  <label for="description">Description *</label>
+  <textarea id="description" name="description" required rows="8" placeholder="Describe the issue as if whispering it to Gerald…"></textarea>
+</div>
+
+
+  <fieldset>
+    <legend>🛠 Tools Involved</legend>
+    <select name="tool[]" id="tool" multiple title="Select one or more tools that relate to the issue.">
+      <option>Laser Cutter - Large (Gerald)</option>
+      <option>Laser Cutter (Sheila)</option>
+      <option>Laser Cutter - Monster (Tony)</option>
+      <option>Vinyl Cutter & Plotter (Roland Rat)</option>
+      <option>Pen Plotter - McGraw</option>
+      <option>B/W Laser Printer</option>
+      <option>Heat Press (St. Margaret)</option>
+      <option>3D Printer - CR-6 MAX (Marcus)</option>
+      <option>Singer 201K Sewing m/c (Miss Polly)</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>🏢 Rooms Affected</legend>
+    <select name="room[]" id="room" multiple title="Which physical spaces are involved or impacted?">
+      <option>Events Room</option>
+      <option>Laser Room</option>
+      <option>Textiles Room</option>
+      <option>Main Space</option>
+      <option>Kitchen</option>
+      <option>Workshop</option>
+      <option>Other / Not Listed</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>💻 Systems Involved</legend>
+    <select name="system[]" id="system" multiple title="Digital systems or infrastructure related to the issue.">
+      <option>Website</option>
+      <option>DoES Community Online System: Issue Tracker</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>📦 Other Categories</legend>
+    <select name="other[]" id="other" multiple title="General themes or concerns that apply.">
+      <option>Health & Safety</option>
+      <option>Finance</option>
+      <option>Promotion</option>
+      <option>Spreading the word about how epic DoES Liverpool is</option>
+    </select>
+  </fieldset>
+
+  <label for="name">Your Name (optional)</label>
+  <input type="text" id="name" name="name" placeholder="e.g. Ed, or leave blank">
+<p class="form-disclaimer">⚠️ This form doesn’t submit anything yet. It’s like Gerald before coffee—beautiful, but not quite functional. (Note Gerald doesn't actually need coffee - he's a laser cutter - he just needs cleaning out when you've finished)</p>
+
+  <button type="submit" class="submit-button">Submit Issue</button>
+</form>
+  <script>
+    document.getElementById('issueForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent actual form submission
+
+      // Gather form data
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const name = document.getElementById('name').value.trim();
+
+      const tools = Array.from(document.getElementById('tool').selectedOptions).map(opt => opt.value);
+      const rooms = Array.from(document.getElementById('room').selectedOptions).map(opt => opt.value);
+      const systems = Array.from(document.getElementById('system').selectedOptions).map(opt => opt.value);
+      const categories = Array.from(document.getElementById('other').selectedOptions).map(opt => opt.value);
+
+      const issuePreview = `
+📝 Issue Title: ${title || '—'}
+📖 Description: ${description || '—'}
+🧰 Tools: ${tools.length ? tools.join(', ') : 'None'}
+🏢 Rooms: ${rooms.length ? rooms.join(', ') : 'None'}
+💻 Systems: ${systems.length ? systems.join(', ') : 'None'}
+📦 Categories: ${categories.length ? categories.join(', ') : 'None'}
+🙋 Reported by: ${name || 'Anonymous'}
+      `;
+
+      alert("Mock Issue Submitted:\n\n" + issuePreview);
+    });
+  </script>
+</body>
+</html>
+
+
+</body>
+</html>
