@@ -48,3 +48,182 @@ footer {
   color: #666;
   text-align: center;
 }
+.feed-container {
+  height: 400px;
+  overflow-y: scroll;
+  padding: 1em;
+  border: 1px solid #ccc;
+  transition: background 0.3s ease;
+}
+
+/* Terminal Style */
+.terminal-style {
+  background: #111;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+}
+
+.terminal-style .issue-item {
+  border-bottom: 1px dashed #0f0;
+  padding: 0.5em 0;
+}
+
+/* Social Style */
+.social-style {
+  background: #f9f9f9;
+  color: #333;
+  font-family: sans-serif;
+}
+
+.social-style .issue-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1em;
+  margin-bottom: 1em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Persona Styles */
+.persona-style {
+  margin-top: 2em;
+  padding: 1em;
+  background: #f0f0f0;
+  border-top: 2px solid #ccc;
+}
+
+.persona-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 1em;
+}
+
+.persona-item {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+@keyframes scrollPersonas {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+.persona-scroll {
+  max-height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.persona-scroll-inner {
+  display: flex;
+  flex-direction: column;
+  animation: scrollPersonas 60s linear infinite;
+}
+
+/* Form Styles */
+.issue-form {
+  background: #f9f9f9;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 2em auto;
+  font-family: sans-serif;
+}
+
+.submit-button {
+  display: inline-block;
+  padding: 0.8em 1.2em;
+  background: #0077cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  background: #005fa3;
+}
+.form-subtext {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #666;
+}
+fieldset {
+  margin-bottom: 1.5em;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fefefe;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
+
+select[multiple] {
+  height: 6em;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  font-family: sans-serif;
+  background: #fff;
+  resize: vertical;
+}
+.form-disclaimer {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #aa0000;
+  font-style: italic;
+}
+.form-group {
+  display: block;
+  margin-bottom: 1em;
+}
+label[for="description"] {
+  vertical-align: top;
+  display: inline-block;
+  margin-bottom: 0.25em;
+}
+
+
+  /* Mobile-specific overrides */
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 1.1em;
+    margin: 1rem;
+  }
+
+  .issue-form {
+    padding: 1em;
+    margin: 1em auto;
+  }
+
+  input[type="text"],
+  textarea,
+  select {
+    font-size: 1em;
+    padding: 0.75em;
+  }
+
+  .submit-button {
+    width: 100%;
+    font-size: 1.1em;
+    padding: 1em;
+    margin-top: 1em;
+  }
+
+  legend {
+    font-size: 1.2em;
+  }
+
+  .form-disclaimer {
+    font-size: 1em;
+  }
+}
