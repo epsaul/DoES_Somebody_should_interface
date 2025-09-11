@@ -12,6 +12,9 @@ app.post('/submit-issue', async (req, res) => {
   console.log("📬 Received issue submission:", req.body);
   ...
 });
+app.listen(PORT, '127.0.0.1', () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
 
 
 const express = require('express');
@@ -76,6 +79,7 @@ ${description}
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
 
 
 
