@@ -52,6 +52,8 @@ ${description}
 `;
 
   try {
+    console.log("✅ GitHub response:", response.data);
+
     const response = await axios.post(
       'https://api.github.com/repos/DoESLiverpool/somebody-should/issues',
       {
@@ -71,6 +73,8 @@ ${description}
       issueUrl: response.data.html_url
     });
   } catch (error) {
+    console.error("❌ GitHub error:", error.response?.data || error.message);
+
     console.error('GitHub API error:', error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to create issue on GitHub.' });
   }
@@ -79,6 +83,7 @@ ${description}
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
 
 
 
