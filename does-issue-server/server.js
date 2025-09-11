@@ -8,6 +8,10 @@ if (!process.env.GITHUB_TOKEN) {
 } else {
   console.log("✅ Token loaded:", process.env.GITHUB_TOKEN.slice(0, 10) + "...");
 }
+app.post('/submit-issue', async (req, res) => {
+  console.log("📬 Received issue submission:", req.body);
+  ...
+});
 
 
 const express = require('express');
@@ -72,5 +76,6 @@ ${description}
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
 
 
