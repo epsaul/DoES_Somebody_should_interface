@@ -1,3 +1,5 @@
+console.log("👋 Starting Gerald's backend...");
+
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
@@ -61,3 +63,4 @@ ${description}
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
