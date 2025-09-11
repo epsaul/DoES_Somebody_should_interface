@@ -1,27 +1,19 @@
 console.log("👋 Starting Gerald's backend...");
-
 require('dotenv').config();
-
 if (!process.env.GITHUB_TOKEN) {
   console.error("❌ GitHub token not found. Check your .env file.");
   process.exit(1);
 } else {
   console.log("✅ Token loaded:", process.env.GITHUB_TOKEN.slice(0, 10) + "...");
 }
-
-
-
 const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const app = express();
 const PORT = 3000;
-
 app.use(cors());
 app.use(bodyParser.json());
-
 app.post('/submit-issue', async (req, res) => {
   const {
     title,
@@ -32,22 +24,16 @@ app.post('/submit-issue', async (req, res) => {
     system = [],
     other = []
   } = req.body;
-
   const issueBody = `
 **Description:**  
 ${description}
-
 **Reported by:** ${name || 'Anonymous'}
-
 **🛠 Tools Involved:** ${tool.length ? tool.join(', ') : 'None'}  
 **🏢 Rooms Affected:** ${room.length ? room.join(', ') : 'None'}  
 **💻 Systems Involved:** ${system.length ? system.join(', ') : 'None'}  
 **📦 Other Categories:** ${other.length ? other.join(', ') : 'None'}
 `;
-
-
   try {
-    console.log("✅ GitHub response:", response.data);
 
     const response = await axios.post(
       'https://api.github.com/repos/DoESLiverpool/somebody-should/issues',
@@ -62,7 +48,7 @@ ${description}
         }
       }
     );
-
+    console.log("✅ GitHub response:", response.data);
     res.status(200).json({
       message: 'Issue created successfully!',
       issueUrl: response.data.html_url
@@ -78,6 +64,7 @@ ${description}
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
 
 
 
