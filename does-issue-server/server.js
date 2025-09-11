@@ -9,9 +9,6 @@ if (!process.env.GITHUB_TOKEN) {
   console.log("✅ Token loaded:", process.env.GITHUB_TOKEN.slice(0, 10) + "...");
 }
 
-app.listen(PORT, '127.0.0.1', () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
 
 
 const express = require('express');
@@ -48,6 +45,7 @@ ${description}
 **📦 Other Categories:** ${other.length ? other.join(', ') : 'None'}
 `;
 
+
   try {
     console.log("✅ GitHub response:", response.data);
 
@@ -80,6 +78,7 @@ ${description}
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
 
 
 
