@@ -1,6 +1,15 @@
 console.log("👋 Starting Gerald's backend...");
 
 require('dotenv').config();
+
+if (!process.env.GITHUB_TOKEN) {
+  console.error("❌ GitHub token not found. Check your .env file.");
+  process.exit(1);
+} else {
+  console.log("✅ Token loaded:", process.env.GITHUB_TOKEN.slice(0, 10) + "...");
+}
+
+
 const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
@@ -63,4 +72,5 @@ ${description}
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
 
