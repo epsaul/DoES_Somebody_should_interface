@@ -72,31 +72,47 @@
   <button type="submit" class="submit-button">Submit Issue</button>
 </form>
   <script>
-    document.getElementById('issueForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent actual form submission
+    document.getElementById('issueForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-      // Gather form data
-      const title = document.getElementById('title').value.trim();
-      const description = document.getElementById('description').value.trim();
-      const name = document.getElementById('name').value.trim();
+  const title = document.getElementById('title').value.trim();
+  const description = document.getElementById('description').value.trim();
+  const name = document.getElementById('name').value.trim();
+  const tools = Array.from(document.getElementById('tool').selectedOptions).map(opt => opt.value);
+  const rooms = Array.from(document.getElementById('room').selectedOptions).map(opt => opt.value);
+  const systems = Array.from(document.getElementById('system').selectedOptions).map(opt => opt.value);
+  const categories = Array.from(document.getElementById('other').selectedOptions).map(opt => opt.value);
 
-      const tools = Array.from(document.getElementById('tool').selectedOptions).map(opt => opt.value);
-      const rooms = Array.from(document.getElementById('room').selectedOptions).map(opt => opt.value);
-      const systems = Array.from(document.getElementById('system').selectedOptions).map(opt => opt.value);
-      const categories = Array.from(document.getElementById('other').selectedOptions).map(opt => opt.value);
+  const payload = {
+    title,
+    description,
+    name,
+    tools,
+    rooms,
+    systems,
+    categories
+  };
 
-      const issuePreview = `
-📝 Issue Title: ${title || '—'}
-📖 Description: ${description || '—'}
-🧰 Tools: ${tools.length ? tools.join(', ') : 'None'}
-🏢 Rooms: ${rooms.length ? rooms.join(', ') : 'None'}
-💻 Systems: ${systems.length ? systems.join(', ') : 'None'}
-📦 Categories: ${categories.length ? categories.join(', ') : 'None'}
-🙋 Reported by: ${name || 'Anonymous'}
-      `;
-
-      alert("Mock Issue Submitted:\n\n" + issuePreview);
+  try {
+    const response = await fetch('http://localhost:3000/submit-issue', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert(`✅ Issue submitted!\n\nView it here: ${result.issueUrl}`);
+    } else {
+      alert(`❌ Submission failed: ${result.message || 'Unknown error'}`);
+    }
+  } catch (error) {
+    console.error('Submission error:', error);
+    alert('❌ Failed to submit issue. Check your server and network connection.');
+  }
+});
+
   </script>
 </body>
 </html>
