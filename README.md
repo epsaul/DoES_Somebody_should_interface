@@ -3,7 +3,10 @@
 A friendly front-end for non-coders to browse, search, and submit issues to the [DoESLiverpool/somebody-should](https://github.com/DoESLiverpool/somebody-should) GitHub repository. Designed to make community participation more accessible—especially for those unfamiliar with GitHub’s developer-centric interface.
 ## 🔗 Live Interface
 
-You can browse and submit issues using the [DoES Somebody Should Interface](https://epsaul.github.io/DoES_Somebody_should_interface/).
+## 🔗 Interface File
+
+View the main interface file: [index.html](https://github.com/epsaul/DoES_Somebody_should_interface/blob/main/public/index.html)
+
 
 ---
 
