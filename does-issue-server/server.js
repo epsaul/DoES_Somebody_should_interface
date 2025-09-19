@@ -13,7 +13,9 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.post('/submit-issue', async (req, res) => {
   const {
     title,
@@ -64,6 +66,7 @@ ${description}
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
 
 
 
