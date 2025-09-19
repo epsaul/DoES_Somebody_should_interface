@@ -61,27 +61,44 @@
       <label for="details">Issue Details</label>
       <textarea id="details" name="details" rows="5" required></textarea>
 
-      <label for="labels">Labels (select one or more)</label>
-      <select id="labels" name="labels[]" multiple>
-        <optgroup label="Room">
-          <option value="Room:Workshop">Workshop</option>
-          <option value="Room:EventSpace">Event Space</option>
-          <option value="Room:Kitchen">Kitchen</option>
-        </optgroup>
-        <optgroup label="Tool">
-          <option value="Tool:LaserCutter">Laser Cutter</option>
-          <option value="Tool:3DPrinter">3D Printer</option>
-          <option value="Tool:SewingMachine">Sewing Machine</option>
-        </optgroup>
-        <optgroup label="System">
-          <option value="System:WiFi">WiFi</option>
-          <option value="System:Booking">Booking System</option>
-        </optgroup>
-        <optgroup label="Other">
-          <option value="Other:General">General</option>
-          <option value="Other:Cleaning">Cleaning</option>
-        </optgroup>
-      </select>
+      <label>Labels (select one or more)</label>
+
+<fieldset>
+  <legend>Room</legend>
+  <label><input type="checkbox" name="labels[]" value="Room:Workshop"> Workshop</label><br>
+  <label><input type="checkbox" name="labels[]" value="Room:MainRoom"> Main Room</label><br>
+  <label><input type="checkbox" name="labels[]" value="Room:EventSpace"> Event Space</label><br>
+  <label><input type="checkbox" name="labels[]" value="Room:Kitchen"> Kitchen</label><br>
+  <label><input type="checkbox" name="labels[]" value="Room:Toilets"> Toilets</label>
+</fieldset>
+
+<fieldset>
+  <legend>Tool</legend>
+  <label><input type="checkbox" name="labels[]" value="Tool:LaserCutter"> Laser Cutter</label><br>
+  <label><input type="checkbox" name="labels[]" value="Tool:LaserCutter2"> Laser Cutter 2</label><br>
+  <label><input type="checkbox" name="labels[]" value="Tool:3DPrinter"> 3D Printer</label><br>
+  <label><input type="checkbox" name="labels[]" value="Tool:3DPrinter2"> 3D Printer 2</label><br>
+  <label><input type="checkbox" name="labels[]" value="Tool:SewingMachine"> Sewing Machine</label><br>
+  <label><input type="checkbox" name="labels[]" value="Tool:VinylCutter"> Vinyl Cutter</label><br>
+  <label><input type="checkbox" name="labels[]" value="Tool:SolderingStation"> Soldering Station</label>
+</fieldset>
+
+<fieldset>
+  <legend>System</legend>
+  <label><input type="checkbox" name="labels[]" value="System:WiFi"> WiFi</label><br>
+  <label><input type="checkbox" name="labels[]" value="System:Booking"> Booking System</label><br>
+  <label><input type="checkbox" name="labels[]" value="System:AccessControl"> Access Control</label><br>
+  <label><input type="checkbox" name="labels[]" value="System:Network"> Network</label>
+</fieldset>
+
+<fieldset>
+  <legend>Other</legend>
+  <label><input type="checkbox" name="labels[]" value="Other:General"> General</label><br>
+  <label><input type="checkbox" name="labels[]" value="Other:Cleaning"> Cleaning</label><br>
+  <label><input type="checkbox" name="labels[]" value="Other:Safety"> Safety</label><br>
+  <label><input type="checkbox" name="labels[]" value="Other:Maintenance"> Maintenance</label>
+</fieldset>
+
 
       <button type="submit">Submit Issue</button>
     </form>
