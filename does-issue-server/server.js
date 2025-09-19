@@ -17,15 +17,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.post('/submit-issue', async (req, res) => {
-  const {
-    title,
-    description,
-    name,
-    tool = [],
-    room = [],
-    system = [],
-    other = []
-  } = req.body;
+const { title, description, name, labels = [] } = req.body;
+
+const tool = labels.filter(l => l.startsWith('Tool:')).map(l => l.replace('Tool:', ''));
+const room = labels.filter(l => l.startsWith('Room:')).map(l => l.replace('Room:', ''));
+const system = labels.filter(l => l.startsWith('System:')).map(l => l.replace('System:', ''));
+const other = labels.filter(l => l.startsWith('Other:')).map(l => l.replace('Other:', ''));
+
   const issueBody = `
 **Description:**  
 ${description}
@@ -66,6 +64,7 @@ ${description}
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
 
 
 
