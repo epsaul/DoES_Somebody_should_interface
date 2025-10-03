@@ -1,35 +1,51 @@
-# DoES_Somebody_should_interface
+# DoES Somebody Should Interface
 
-A friendly front-end for non-coders to browse, search, and submit issues to the [DoESLiverpool/somebody-should](https://github.com/DoESLiverpool/somebody-should) GitHub repository. Designed to make community participation more accessible—especially for those unfamiliar with GitHub’s developer-centric interface.
-## 🔗 Live Interface
+A static front-end for browsing, searching, and submitting issues to the DoESLiverpool/somebody-should GitHub repository. Designed to make community participation accessible to those unfamiliar with GitHub’s developer-centric interface.
 
-View the main interface file: [index.html](https://epsaul.github.io/DoES_Somebody_should_interface/)
-
-
----
-
-## 🌟 Purpose
-
-DoES Liverpool uses GitHub Issues to track tasks, suggestions, and maintenance needs across its maker space. While powerful, GitHub can be intimidating for non-coders. This project provides a clean, intuitive interface that allows anyone to:
-
+## Overview
 - Browse open issues
 - Search by keyword or label
 - Submit new issues via a simple form
-- Engage with community governance without needing GitHub fluency
+- No GitHub account required for viewing
+- Designed for public kiosks and community governance
 
----
+## Requirements
+- Web browser (desktop or kiosk)
+- Internet connection
+- GitHub repository: DoESLiverpool/somebody-should
 
-## 📁 Project Structure
+## Deployment
+This is a static site. To deploy:
 
-This project is a static front-end interface designed to make GitHub issue tracking more accessible for non-coders. All files live in the root directory:
+1. Clone the repository:  
+   `git clone https://github.com/epsaul/DoES_Somebody_should_interface.git`  
+2. Serve via GitHub Pages or any static host  
+3. Ensure GitHub API access is permitted (rate-limited for unauthenticated users)
 
-| File                                                                 | Purpose                                                             |
-|----------------------------------------------------------------------|---------------------------------------------------------------------|
-| [`index.html`](https://github.com/epsaul/DoES_Somebody_should_interface/blob/main/index.html) | Main interface for browsing and searching issues                    |
-| [`style.css`](https://github.com/epsaul/DoES_Somebody_should_interface/blob/main/style.css)   | Styling for layout, readability, and responsiveness                 |
-| [`script.js`](https://github.com/epsaul/DoES_Somebody_should_interface/blob/main/script.js)   | JavaScript logic for fetching, filtering, and rendering issues      |
-| [`README.md`](https://github.com/epsaul/DoES_Somebody_should_interface/blob/main/README.md)   | Project overview, setup instructions, and contribution guide        |
+## Project Structure
+DoES_Somebody_should_interface/  
+├── index.html — Main interface  
+├── issueForm.html — Issue submission form  
+├── style.css — Layout and styling  
+├── script.js — Fetching and rendering logic  
+├── .gitignore — Ignores `.env` and other local files  
+└── .nojekyll — Enables GitHub Pages compatibility
 
+## Notes
+- Designed for non-coders and public use  
+- Uses GitHub’s REST API for issue data  
+- No server-side components  
+- Can be embedded in Raspberry Pi kiosk setups
 
+## License
+MIT License. See `LICENSE` for details.
 
+## Contributing
+Pull requests welcome. Fork the repository and submit changes.
 
+## Future Plans
+- Add label-based filtering  
+- Improve mobile responsiveness  
+- Secure API token via `.env` (if needed)  
+- Add visual feedback for submission success/failure  
+- Integrate with DoES dashboard for unified governance tools
