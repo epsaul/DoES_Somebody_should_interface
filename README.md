@@ -43,6 +43,18 @@ MIT License. See `LICENSE` for details.
 ## Contributing
 Pull requests welcome. Fork the repository and submit changes.
 
+## Legacy Deployment · Pi 1B
+
+Tag: `pi1b-working-v1`  
+Preserves functional backend for Raspberry Pi 1B.  
+Includes locked dependencies, legacy-compatible modules, and corrected form routing.  
+Form action targets LAN IP or hostname.  
+Backend confirmed active on port `3000`.
+
+> “One token. One push. One voice preserved.”
+
+Use this tag to replicate Gerald’s working state on constrained hardware.
+
 ## Future Plans
 - Add label-based filtering  
 - Improve mobile responsiveness  
