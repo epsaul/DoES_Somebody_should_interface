@@ -54,9 +54,9 @@ ${description}
       issueUrl: response.data.html_url
     });
   } catch (error) {
-    console.error("❌ GitHub error:", error.response?.data || error.message);
+    console.error("❌ GitHub error:", (error.response && error.response.data) ? error.response.data : error.message);
 
-    console.error('GitHub API error:', error.response?.data || error.message);
+    console.error('GitHub API error:', (error.response && error.response.data) ? error.response.data : error.message);
     res.status(500).json({ error: 'Failed to create issue on GitHub.' });
   }
 });
